@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.crashlytics.android.Crashlytics;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -15,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void triggerRuntimeException(View view) {
         Log.d("GGG", "hello");
-        throw new RuntimeException();
+        //throw new RuntimeException();
+        Crashlytics.getInstance().crash();
     }
 }
