@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "263803041625",
+    "firebase_url": "https://ph25-crash-study.firebaseio.com",
+    "project_id": "ph25-crash-study",
+    "storage_bucket": "ph25-crash-study.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:263803041625:android:ad463d9716f89ca3",
+        "android_client_info": {
+          "package_name": "com.example.finalproject.crashstudy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "263803041625-g9tc57s57b9tljic9bob1iiuibrmnv55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfwY6uGm9DCASljIIAZdTcyTABJ-s5ROQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
