@@ -23,14 +23,22 @@ public class ExceptionMaker {
     }
 
     public static void triggerRuntimeException() {
-        throw new RuntimeException();
+        new Thread(new Runnable() {
+            public void run() {
+                throw new RuntimeException();
+            }
+        }).start();
     }
 
     public static void triggerConcurrentModificationException() {
         // https://stackoverflow.com/questions/223918/iterating-through-a-collection-avoiding-concurrentmodificationexception-when-re?rq=1
-        List<String> list = new ArrayList<>(Arrays.asList("1", "2"));
-        for (String item: list) {
-            list.remove(item);
-        }
+        new Thread(new Runnable() {
+            public void run() {
+                List<String> list = new ArrayList<>(Arrays.asList("1", "2"));
+                for (String item: list) {
+                    list.remove(item);
+                }
+            }
+        }).start();
     }
 }
