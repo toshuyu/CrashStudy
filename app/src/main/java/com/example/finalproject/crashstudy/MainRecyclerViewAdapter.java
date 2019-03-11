@@ -1,5 +1,6 @@
 package com.example.finalproject.crashstudy;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +11,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private ArrayList<ExceptionInfo> list;
+    private ArrayList<ExceptionInfo> mList;
+    private Context mContext;
 
-    public MainRecyclerViewAdapter(ArrayList<ExceptionInfo> list) {
-        this.list = list;
+    public MainRecyclerViewAdapter(ArrayList<ExceptionInfo> list, Context context) {
+        this.mList = list;
+        this.mContext = context;
     }
 
     @Override
@@ -25,20 +28,20 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         ViewHolder vh = (ViewHolder) holder;
-        final ExceptionInfo e = list.get(position);
+        final ExceptionInfo e = mList.get(position);
         vh.tvDesc.setText(e.getDesc());
         vh.btn.setText(e.getName());
         vh.btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ExceptionMaker.makeException(e.getType());
+                ExceptionMaker.makeException(e.getType(), mContext);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return mList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
