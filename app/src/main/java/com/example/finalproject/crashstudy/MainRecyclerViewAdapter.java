@@ -1,6 +1,7 @@
 package com.example.finalproject.crashstudy;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +38,15 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
                 ExceptionMaker.makeException(e.getType(), mContext);
             }
         });
+
+        if (e.isMainThread()) {
+            vh.tvLabelThread.setTextColor(ContextCompat.getColor(mContext, R.color.label_selected));
+            vh.tvLabelThread.setBackgroundResource(R.drawable.label_bg_selected);
+        }
+        if (e.isCatch()) {
+            vh.tvLabelCatch.setTextColor(ContextCompat.getColor(mContext, R.color.label_selected));
+            vh.tvLabelCatch.setBackgroundResource(R.drawable.label_bg_selected);
+        }
     }
 
     @Override
@@ -47,11 +57,15 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private Button btn;
         private TextView tvDesc;
+        private TextView tvLabelThread;
+        private TextView tvLabelCatch;
 
         public ViewHolder(View itemView) {
             super(itemView);
             btn = itemView.findViewById(R.id.btnTrigger);
             tvDesc = itemView.findViewById(R.id.tvDesc);
+            tvLabelThread = itemView.findViewById(R.id.tvLabelThread);
+            tvLabelCatch = itemView.findViewById(R.id.tvLabelCatch);
         }
     }
 }

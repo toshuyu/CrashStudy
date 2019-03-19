@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="8dp"
@@ -8,27 +11,60 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="8dp">
+            android:padding="8dp"
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btnTrigger"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Trigger Runtime Exception" />
+                tools:text="Trigger Runtime Exception" />
 
             <TextView
                 android:id="@+id/tvDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:autoLink="web"
-                android:text="TextView" />
-        </LinearLayout>
+                tools:text="Desc Desc Desc ..." />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="end">
+
+                <TextView
+                    android:id="@+id/tvLabelThread"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/label_bg_deselected"
+                    android:textColor="@color/label_deselected"
+                    android:padding="4dp"
+                    android:textSize="12sp"
+                    android:text="Main Thread" />
+
+                <TextView
+                    android:id="@+id/tvLabelCatch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/label_bg_deselected"
+                    android:padding="4dp"
+                    android:textColor="@color/label_deselected"
+                    android:textSize="12sp"
+                    android:text="Catch" />
+
+            </LinearLayout>
+        </LinearLayout>
     </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>
