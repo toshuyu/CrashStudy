@@ -38,17 +38,13 @@ public class ExceptionMaker {
     }
 
     public static void triggerRuntimeException() {
-        new Thread(new Runnable() {
-            public void run() {
-                try {
-                    throw new RuntimeException();
-                } catch (RuntimeException e){
-                    Crashlytics.setInt("classid", RUNTIME_EXCEPTION);
-                    Crashlytics.log(Log.ERROR, TAG, "this is a customized catch");
-                    Crashlytics.logException(e);
-                }
-            }
-        }).start();
+        try {
+            throw new RuntimeException();
+        } catch (RuntimeException e){
+            Crashlytics.setInt("classid", RUNTIME_EXCEPTION);
+            Crashlytics.log(Log.ERROR, TAG, "this is a customized catch");
+            Crashlytics.logException(e);
+        }
     }
 
     public static void triggerConcurrentModificationException() {
@@ -64,7 +60,7 @@ public class ExceptionMaker {
     }
 
     public static void triggerBadTokenException(Context context) {
-        // // https://stackoverflow.com/questions/18662239/android-view-windowmanagerbadtokenexception-unable-to-add-window-on-buider-s
+        // https://stackoverflow.com/questions/18662239/android-view-windowmanagerbadtokenexception-unable-to-add-window-on-buider-s
         Intent intent = new Intent(context, BadTokenDemoActivity.class);
         context.startActivity(intent);
     }
